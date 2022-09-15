@@ -1,0 +1,1358 @@
+OnPlayerEscape---------------------------------
+
+if (Cuffed == (true)) {
+if (strfind(OldClass, "Facility Guard", 1, true)) {
+roundlock(true);
+Teleport(Plr, Vec3(-2511, 1080, -57));
+wait(1/5);
+SetMaxHealth(Plr, 0);
+SetHealth(Plr, 0);
+    Announce("You Ecaped!", Plr);
+wait(2);
+ClearRagdolls(Plr);
+  SetClass(Plr, "CI Gamma");
+roundlock(false);
+}
+if (strfind(OldClass, "Security Chief", 1, true)) {
+roundlock(true);
+Teleport(Plr, Vec3(-2511, 1080, -57));
+wait(1/5);
+SetMaxHealth(Plr, 0);
+SetHealth(Plr, 0);
+    Announce("You Ecaped!", Plr);
+wait(2);
+ClearRagdolls(Plr);
+  SetClass(Plr, "CI Gamma");
+roundlock(false);
+}
+if (strfind(OldClass, "MTF", 1, true)) {
+roundlock(true);
+Teleport(Plr, Vec3(-2511, 1080, -57));
+wait(1/5);
+SetMaxHealth(Plr, 0);
+SetHealth(Plr, 0);
+    Announce("You Ecaped!", Plr);
+wait(2);
+ClearRagdolls(Plr);
+  SetClass(Plr, "CI Beta");
+roundlock(false);
+}
+}
+if (Cuffed == (false)) {
+roundlock(true);
+if (strfind(OldClass, "Facility Guard", 1, true)) {
+Teleport(Plr, Vec3(-2508, 1089, -406));
+wait(1/5);
+SetMaxHealth(Plr, 0);
+SetHealth(Plr, 0);
+    Announce("You Ecaped!", Plr);
+wait(2);
+ClearRagdolls(Plr);
+  SetClass(Plr, "MTF Lieutenant");
+roundlock(false);
+}
+if (strfind(OldClass, "Security Chief", 1, true)) {
+roundlock(true);
+Teleport(Plr, Vec3(-2508, 1089, -406));
+wait(1/5);
+SetMaxHealth(Plr, 0);
+SetHealth(Plr, 0);
+    Announce("You Ecaped!", Plr);
+wait(2);
+ClearRagdolls(Plr);
+  SetClass(Plr, "MTF Lieutenant");
+roundlock(false);
+}
+if (strfind(OldClass, "SCP", 1, true)) {
+Teleport(Plr, Vec3(-2511, 1110, -117));
+wait(1/5);
+SetMaxHealth(Plr, 0);
+SetHealth(Plr, 0);
+    Announce("You Ecaped!", Plr);
+wait(2);
+ClearRagdolls(Plr);
+  SetClass(Plr, "Serpents Hand");
+SetGlobal("SCPsEscape",GetGlobal("SCPsEscape") + 1);
+}
+}
+
+
+
+OnPlayerSpawn-------------------------------------
+
+Announce("Type: !commands in chat",Plr);
+if (Plr.Class == "SCP-939") {
+SetSpeed(Plr,10);
+SetMaxHealth(Plr, Plr.MaxHealth + 3000);
+SetHealth(Plr, Plr.Health + 3000);
+Announce("you are scp 966",Plr);
+}
+if (Plr.Name == "omnidimensionals") {
+Announce("YOU ARE NOT WELCOME HERE. GO OUT!ITS YOR PURGATORY-HELL!",Plr);
+SetClass(Plr,"GOD");
+}
+if (strfind(Class, "CI", 1, true)) {
+  GiveItem(Plr, "Handcuffs");
+SetMaxHealth(Plr, Plr.Health + 5);
+SetHealth(Plr, Plr.Health + 15);
+}
+if (strfind(Class, "MTF", 1, true)) {
+RemoveItem(Plr, "Handcuffs");
+wait(1/10);
+GiveItem(Plr, "Handcuffs");
+}
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+Announce("You can choose another scp type !fc (number of scp)",Plr);
+SetMaxHealth(Plr, #GetPlayers() * 20 + Plr.MaxHealth);
+SetHealth(Plr, #GetPlayers() * 20 + Plr.Health);
+}
+}
+if (Plr.Class == "GOC Captain") Announce("Global Ocult Coalition Has entered the facility");
+print Plr.Name + " Just becomed a " + Plr.Class;
+RemoveItem(Plr, "[Admin Panel] Minigun");
+RemoveItem(Plr, "[Admin Panel] grenade jumper");
+RemoveItem(Plr, "DIVINE INTERVENTION");
+if (Plr.Class == "SCP-457") SetClass(Plr,"SCP-1507");
+if (Plr.Class == "o5") {
+SetClass(Plr, "Researcher");
+wait(1/5);
+RemoveItem(Plr, "Scientist Keycard");
+RemoveItem(Plr, "Mojor Scientist Keycard");
+RemoveItem(Plr, "Medkit");
+RemoveItem(Plr, "Flashlight");
+GiveItem(Plr, "O5 Keycard");
+}
+
+if (Plr.Class == "MTF Commander") {
+SetGlobal("MTF","Mobile Task Force ");
+SetGlobal("MTF3",".All remaining personal please stay in evecuation shelter untill the units contain ");
+SetGlobal("MTF4","SCP contaiment breaches.SCP: ");
+var mtfnumberx = rand(1, 9);
+if (mtfnumberx == 1) {
+SetGlobal("MTFN","|1|");
+}
+if (mtfnumberx == 2) {
+SetGlobal("MTFN","|2|");
+}
+if (mtfnumberx == 3) {
+SetGlobal("MTFN","|3|");
+}
+if (mtfnumberx == 4) {
+SetGlobal("MTFN","4|");
+}
+if (mtfnumberx == 5) {
+SetGlobal("MTFN","|5|");
+}
+if (mtfnumberx == 6) {
+SetGlobal("MTFN","|6|");
+}
+if (mtfnumberx == 7) {
+SetGlobal("MTFN","|7|");
+}
+if (mtfnumberx == 8) {
+SetGlobal("MTFN","|8|");
+}
+if (mtfnumberx == 9) {
+SetGlobal("MTFN","|9|");
+}
+var mtfmi = rand(2, 9);
+if (mtfmi == 1) {
+SetGlobal("MTFD","Mike ");
+}
+if (mtfmi == 2) {
+SetGlobal("MTFD","Designated Hotel ");
+}
+if (mtfmi == 3) {
+SetGlobal("MTFD","Designated Tango ");
+}
+if (mtfmi == 4) {
+SetGlobal("MTFD","Designated Dizy ");
+}
+if (mtfmi == 5) {
+SetGlobal("MTFD","Designated Lime ");
+}
+if (mtfmi == 6) {
+SetGlobal("MTFD","Designated Person ");
+}
+if (mtfmi == 7) {
+SetGlobal("MTFD","Designated Lazy ");
+}
+if (mtfmi == 8) {
+SetGlobal("MTFD","Designated Noob ");
+}
+if (mtfmi == 9) {
+SetGlobal("MTFD","Designated Alpha ");
+}
+var mtfn = rand(2, 6);
+var lol = "ok";
+var scpcount = (#GetPlayersInTeam("SCP-939") + #GetPlayersInTeam("SCP-049-2") + #GetPlayersInTeam("SCP-106") + #GetPlayersInTeam("SCP-173") + #GetPlayersInTeam("SCP-096") + #GetPlayersInTeam("SCP-610") + #GetPlayersInTeam("SCP-008") + #GetPlayersInTeam("SCP-1507") + #GetPlayersInTeam("SCP-457") + #GetPlayersInTeam("SCP-035"));
+SetMaxHealth(Plr, 120);
+SetHealth(Plr, 120);
+wait(1/2);
+SetGlobal("SCPc",scpcount);
+SetGlobal("mtf",1);
+wait(0.5);
+if (#GetPlayersInTeam("SCP-939") > 0) {
+SetGlobal("mtf",7);
+}
+
+if (#GetPlayersInTeam("SCP-096") + #GetPlayersInTeam("SCP-173") > 0) {
+SetGlobal("mtf",2);
+}
+if (#GetPlayersInTeam("SCP-049") > 0) {
+var dublicat = rand(1,2);
+if (dublicat == 1) {
+SetGlobal("mtf",2);
+}
+if (dublicat == 2) {
+SetGlobal("mtf",6);
+}
+}
+if (#GetPlayersInTeam("SCP-610") + #GetPlayersInTeam("SCP-008") > 0) {
+SetGlobal("mtf",3);
+}
+if (#GetPlayersInTeam("SCP-457") + #GetPlayersInTeam("SCP-1507") > 0) {
+SetGlobal("mtf",4);
+}
+if (#GetPlayersInTeam("SCP-035") > 0) {
+SetGlobal("mtf",5);
+}
+if (#GetPlayersInTeam("SCP-049-2") + #GetPlayersInTeam("SCP-008") > 0) {
+SetGlobal("mtf",6);
+}
+
+wait(1);
+print mtfn;
+print GetGlobal("mtf");
+if (GetGlobal("mtf") == 1) {
+SetGlobal("EPSILON","Epsilon 11 nine tailed fox ");
+}
+if (GetGlobal("mtf") == 2) {
+SetGlobal("EPSILON","Nu-7 hammer down ");
+RemoveItem(Plr, "SCAR-L");
+RemoveItem(Plr, "Skin Spray");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "M60");
+GiveItem(Plr, "Grenade");
+GiveItem(Plr, "Grenade");
+SetMaxHealth(Plr, 105);
+SetHealth(Plr, 120);
+ModifyPlayerAmmo(Plr, "MediumCaliber",-180);
+ModifyPlayerAmmo(Plr, "HeavyCaliber",30);
+}
+if (GetGlobal("mtf") == 3) {
+SetGlobal("EPSILON","Beta-7 Maz hatters ");
+RemoveItem(Plr, "Skin Spray");
+RemoveItem(Plr, "Stun Grenade");
+RemoveItem(Plr, "Grenade");
+GiveItem(Plr, "Medkit");
+GiveItem(Plr, "M4A1");
+GiveItem(Plr, "Grenade");
+SetMaxHealth(Plr, 115);
+SetHealth(Plr, 120);
+ModifyPlayerAmmo(Plr, "MediumCaliber",30);
+}
+if (GetGlobal("mtf") == 4) {
+SetGlobal("EPSILON","Epsilon 9 fire eaters ");
+RemoveItem(Plr, "SCAR-L");
+RemoveItem(Plr, "Skin Spray");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "M110");
+GiveItem(Plr, "Nova");
+GiveItem(Plr, "SCAR PDW");
+SetMaxHealth(Plr, 120);
+SetHealth(Plr, 120);
+}
+if (GetGlobal("mtf") == 5) {
+SetGlobal("EPSILON","ETA-10 see no evil ");
+RemoveItem(Plr, "Skin Spray");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "M249");
+GiveItem(Plr, "AA-12");
+SetMaxHealth(Plr, 120);
+SetHealth(Plr, 120);
+}
+if (GetGlobal("mtf") == 6) {
+SetGlobal("EPSILON","PSI-8 Silencers ");
+RemoveItem(Plr, "SCAR-L");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "Nova");
+GiveItem(Plr, "AA-12");
+SetMaxHealth(Plr, 120);
+SetHealth(Plr, 120);
+}
+if (GetGlobal("mtf") == 7) {
+SetGlobal("EPSILON","MU-13 GHOSTBUSTERS ");
+GiveItem(Plr,"MP5");
+GiveItem(Plr,"M249");
+RemoveItem(Plr, "SCAR-L");
+RemoveItem(Plr, "Skin Spray");
+}
+wait(1);
+Announce((GetGlobal("MTF") + GetGlobal("EPSILON") + GetGlobal("MTFD") + GetGlobal("MTFN") + GetGlobal("MTF3") + GetGlobal("MTF4")));
+wait(0.5);
+Announce(GetGlobal("SCPc"));
+wait(4);
+if (GetGlobal("mtf") == 8) Announce("Alpha 1 has entered the facility prepear to die");
+}
+if (Plr.Class == "MTF Cadet") {
+if (GetGlobal("mtf") == 1) {
+SetMaxHealth(Plr, 110);
+SetHealth(Plr, 110);
+} else {
+SetClass(Plr, "MTF Lieutenant");
+}
+}
+if (Plr.Class == "MTF Medic") {
+if (GetGlobal("mtf") == 1) {
+SetMaxHealth(Plr, 110);
+SetHealth(Plr, 110);
+} else {
+SetClass(Plr, "MTF Lieutenant");
+}
+}
+if (Plr.Class == "MTF Sniper") {
+if (GetGlobal("mtf") == 1) {
+SetMaxHealth(Plr, 110);
+SetHealth(Plr, 110);
+} else {
+SetClass(Plr, "MTF Lieutenant");
+}
+}
+if (Plr.Class == "MTF Specialist") {
+if (GetGlobal("mtf") == 1) {
+SetMaxHealth(Plr, 110);
+SetHealth(Plr, 110);
+ModifyPlayerAmmo(Plr, "MediumCaliber",120);
+} else {
+SetClass(Plr, "MTF Lieutenant");
+}
+}
+if (Plr.Class == "MTF Lieutenant") {
+wait(4/3);
+SetMaxHealth(Plr, 105);
+SetHealth(Plr, 105);
+if (GetGlobal("mtf") == 2) {
+RemoveItem(Plr, "SCAR PDW");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "AA-12");
+SetMaxHealth(Plr, 110);
+SetHealth(Plr, 110);
+}
+if (GetGlobal("mtf") == 3) {
+RemoveItem(Plr, "SCAR PDW");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "P90");
+SetMaxHealth(Plr, 112);
+SetHealth(Plr, 115);
+}
+if (GetGlobal("mtf") == 4) {
+RemoveItem(Plr, "SCAR PDW");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "Nova");
+GiveItem(Plr, "G36C");
+SetMaxHealth(Plr, 115);
+SetHealth(Plr, 115);
+}
+if (GetGlobal("mtf") == 5) {
+RemoveItem(Plr, "SCAR PDW");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "AA-12");
+GiveItem(Plr, "M110");
+SetMaxHealth(Plr, 115);
+SetHealth(Plr, 115);
+}
+if (GetGlobal("mtf") == 6) {
+RemoveItem(Plr, "SCAR PDW");
+RemoveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "SCAR-L");
+GiveItem(Plr, "M110");
+SetMaxHealth(Plr, 95);
+SetHealth(Plr, 115);
+}
+if (GetGlobal("mtf") == 7) {
+SetGlobal("EPSILON","MU-13 GHOSTBUSTERS ");
+GiveItem(Plr,"Desert Eagle");
+GiveItem(Plr,"MP5");
+RemoveItem(Plr, "SCAR PDW");
+RemoveItem(Plr, "Stun Grenade");
+}
+}
+if (Plr.Class == "SCP-008") {
+wait(1/2);
+GiveItem(Plr, "Glock 17");
+GiveItem(Plr, "19 dolar fortnite card");
+SetHealth(Plr, 75);
+SetMaxHealth(Plr, 75);
+}
+SetTeamCanDamage("SCP-035","SCP-049",false);
+SetTeamCanDamage("SCP-049","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-049-2",false);
+SetTeamCanDamage("SCP-049-2","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-106",false);
+SetTeamCanDamage("SCP-106","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-096",false);
+SetTeamCanDamage("SCP-096","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-610",false);
+SetTeamCanDamage("SCP-610","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-173",false);
+SetTeamCanDamage("SCP-173","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-1507",false);
+SetTeamCanDamage("SCP-1507","SCP-035",false);
+SetTeamCanDamage("SCP-035","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-035",false);
+SetTeamCanDamage("SCP-096","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-096",false);
+SetTeamCanDamage("SCP-049","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-049",false);
+SetTeamCanDamage("SCP-049-2","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-049-2",false);
+SetTeamCanDamage("SCP-610","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-610",false);
+SetTeamCanDamage("SCP-1507","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-1507",false);
+SetTeamCanDamage("SCP-106","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-106",false);
+SetTeamCanDamage("SCP-173","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-173",false);
+SetTeamCanDamage("SCP-035","SCP-049",false);
+SetTeamCanDamage("SCP-049","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-049-2",false);
+SetTeamCanDamage("SCP-049-2","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-106",false);
+SetTeamCanDamage("SCP-106","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-096",false);
+SetTeamCanDamage("SCP-096","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-610",false);
+SetTeamCanDamage("SCP-610","SCP-035",false);
+SetTeamCanDamage("SCP-457","SCP-610",false);
+SetTeamCanDamage("SCP-610","SCP-457",false);
+SetTeamCanDamage("SCP-035","SCP-008",false);
+SetTeamCanDamage("SCP-008","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-173",false);
+SetTeamCanDamage("SCP-173","SCP-035",false);
+SetTeamCanDamage("SCP-035","SCP-1507",false);
+SetTeamCanDamage("SCP-1507","SCP-035",false);
+SetTeamCanDamage("SCP-035","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-035",false);
+SetTeamCanDamage("SCP-008","Serpents Hand",false);
+SetTeamCanDamage("Serpents Hand","SCP-008",false);
+if (Plr.Class == "SCP-035") {
+ModifyPlayerAmmo(Plr, "SmallCaliber",45);
+RemoveItem(Plr, "Flashlight");
+wait(1);
+Announce("OBJECT SCP 035 OBSESION MASK HAS BREACH CONTAIMENT");
+SetMaxHealth(Plr, 220);
+SetHealth(Plr, 220);
+wait(1);
+GiveItem(Plr, "USP");
+GiveItem(Plr, "Scientist Keycard");
+Announce("You are a SCP-035!", Plr);
+wait(5);
+Announce("SCPs and Serpents Hand are Friendly to you!", Plr);
+}
+if (HasItem(Plr, "China Lake")) {
+wait(1/2);
+RemoveItem(Plr, "China Lake");
+GiveItem(Plr, "M4A1");
+}
+if (Plr.Class == "Senior Guard") {
+SetClass(Plr, "MTF Cadet");
+wait(1/2);
+Announce("YOU ARE SENIOR GUARD" ,Plr);
+SetMaxHealth(Plr, 115);
+SetHealth(Plr, 115);
+RemoveItem(Plr, "P90");
+RemoveItem(Plr, "Grenade");
+RemoveItem(Plr, "MTF Cadet Keycard");
+GiveItem(Plr, "M4A1");
+GiveItem(Plr, "MTF Lieutenant Keycard");
+GiveItem(Plr, "Grenade");
+}
+if (Plr.Class == "GOD") {
+wait(1);
+RemoveItem(Plr, "[Admin Panel] Minigun");
+RemoveItem(Plr, "DIVINE INTERVENTION");
+}
+if (Plr.Class == "SCP-049-2") {
+SetGlobal("cured", GetGlobal("cured") + 1);
+if (GetGlobal("tier") == 2) {
+var rnumsf = rand(1, 2);
+if (rnumsf == 1) {
+wait(1/2);
+SetMaxHealth(Plr, 1000);
+SetHealth(Plr, 1000);
+Announce("YOU ARE TANK ZOMBIE", Plr);
+}
+if (rnumsf == 2) {
+wait(1/2);
+SetSpeed(Plr, 20);
+Announce("YOU ARE SPEED ZOMBIE", Plr);
+}
+}
+
+if (GetGlobal("tier") == 3) {
+SetMaxHealth(Plr, 1000);
+SetHealth(Plr, 1000);
+wait(1/2);
+SetSpeed(Plr, 20);
+Announce("YOU ARE MAX ZOMBIE", Plr);
+
+}
+}
+if (Plr.Class == "SCP-049") {
+wait(0.5);
+SetMaxHealth(Plr, Plr.Health + 500);
+SetHealth(Plr, Plr.Health + 700);
+wait(1);
+Announce("USE !talk1 !talk2 !talk3 in chat (30 sec coldown)" ,Plr);
+wait(1);
+Announce("TYPE !tier in chat to know info whats tier now" ,Plr);
+wait(1);
+Announce("TYPE !cured in chat to know how many guys was cured" ,Plr);
+
+}
+if (Plr.Class == "SCP-096") {
+wait(1);
+SetMaxHealth(Plr, Plr.Health + 500);
+SetHealth(Plr, Plr.Health + 700);
+
+}
+if (Plr.Class == "Security Chief") {
+    var rnuf = rand(1, 2);
+    wait(1/10);
+    if (rnuf == 3) {
+wait(1);
+SetClass(Plr, "Senior Guard");
+
+}
+    if (rnuf == 2) {
+    var rnuci = rand(1, 2);
+    wait(1/2);
+    if (rnuci == 1) {
+    SetClass(Plr, "CI Delta");
+    wait(1);
+    GiveItem(Plr, "Smoke Grenade");
+    GiveItem(Plr, "Silenced Banshee 300");
+    GiveItem(Plr, "Hax Device Lvl2");
+    RemoveItem(Plr, "Flashlight");
+    RemoveItem(Plr, "Skin Spray");
+    RemoveItem(Plr, "AK");
+    RemoveItem(Plr, "Hax Device Lvl3");
+    RemoveItem(Plr, "Grenade");
+    Announce("You are a CI SPY-TANK!", Plr);
+    Teleport(Plr, Vec3(-2511, 1110, -117));
+    }
+    if (rnuci == 2) {
+    SetClass(Plr, "CI Delta");
+Announce("You are a CI SPY-SNIPER!", Plr);
+    wait(1);
+    Teleport(Plr, Vec3(-2511, 1110, -117));
+    RemoveItem(Plr, "Hax Device Lvl1");
+    RemoveItem(Plr, "Grenade");
+    RemoveItem(Plr, "M60");
+    RemoveItem(Plr, "AK");
+    GiveItem(Plr, "Barrett M82A1");
+    GiveItem(Plr, "Revolver");
+    ModifyPlayerAmmo(Plr, "HeavyCaliber",-190);
+}
+}
+}
+if (Plr.Class == "Class-D") {
+wait(1/10);
+RemoveItem(Plr, "Class-D Keycard");
+GiveItem(Plr, "Class-D Keycard");
+   var rcardj = rand(1, 9);
+   var rskin = rand(1, 3);
+   var rcrowbar = rand(1, 15);
+   if (rcardj == 1) {
+GiveItem(Plr, "Janitor Keycard");
+}
+if (rskin == 1) {
+GiveItem(Plr, "Skin Spray");
+}
+if (rcrowbar == 1) {
+GiveItem(Plr, "Crowbar");
+}
+}
+if (Plr.Class == "Janitor") {
+GiveItem(Plr, "Radio");
+GiveItem(Plr, "Skin Spray");
+GiveItem(Plr, "Skin Spray");
+}
+if (Plr.Class == "Researcher") {
+wait(1/10);
+RemoveItem(Plr, "Medkit");
+GiveItem(Plr, "Medkit");
+RemoveItem(Plr, "Flashlight");
+GiveItem(Plr, "Flashlight");
+GiveItem(Plr, "Radio");
+var rarmoredgun = rand(1, 6);
+if (rarmoredgun == 1) {
+GiveItem(Plr, "Handcuffs");
+GiveItem(Plr, "USP");
+}
+}
+if (Plr.Class == "MTF Cadet") {
+wait(1);
+SetMaxHealth(Plr, Plr.Health + 5);
+SetHealth(Plr, Plr.Health + 5);
+RemoveItem(Plr, "Skin Spray");
+GiveItem(Plr, "Medkit");
+}
+if (Plr.Class == "MTF-NU7") {
+SetClass(Plr, "MTF Lieutenant");
+Announce("YOU ARE MTF-NU7" ,Plr);
+wait(1);
+SetMaxHealth(Plr, Plr.Health + 10);
+SetHealth(Plr, Plr.Health + 10);
+RemoveItem(Plr, "SCAR PDW");
+RemoveItem(Plr, "Medkit");
+GiveItem(Plr, "AA-12");
+GiveItem(Plr, "M110");
+ModifyPlayerAmmo(Plr, "Shells",100);
+}
+if (Plr.Class == "Facility Guard") {
+GiveItem(Plr, "Stun Grenade");
+GiveItem(Plr, "Stun Grenade");
+}
+if (Plr.Class == "CI Delta") {
+RemoveItem(Plr, "Skin Spray");
+}
+if (Plr.Class == "CI Gamma") {
+RemoveItem(Plr, "Skin Spray");
+}
+if (Plr.Class == "Serpents Hand") {
+wait(1/2);
+GiveItem(Plr, "Handcuffs");
+GiveItem(Plr, "AK");
+Teleport(Plr, Vec3(-2511, 1110, -117));
+GiveItem(Plr, "Light Weight Vest");
+}
+if (Plr.Class == "CI Alpha") {
+var cialpha = rand(1, 3);
+wait(1/10);
+if (cialpha == 2) {
+SetClass(Plr, "CI Gamma");
+wait(1/2);
+RemoveItem(Plr, "UZI");
+RemoveItem(Plr, "AK");
+GiveItem(Plr, "Nova");
+GiveItem(Plr, "Sawed-Off DB");
+ModifyPlayerAmmo(Plr, "Shells",40);
+ModifyPlayerAmmo(Plr, "MediumCaliber",-150);
+ModifyPlayerAmmo(Plr, "SmallCaliber",-165);
+wait(1);
+Announce("YOU ARE CI REPESSOR aka'shotgunner'",Plr);
+}
+if (cialpha == 1) {
+SetClass(Plr, "CI Gamma");
+wait(1/2);
+RemoveItem(Plr, "UZI");
+RemoveItem(Plr, "Grenade");
+RemoveItem(Plr, "AK");
+ModifyPlayerAmmo(Plr, "MediumCaliber",-150);
+GiveItem(Plr, "SCP-034");
+GiveItem(Plr, "Silenced Banshee 300");
+wait(1);
+Announce("YOU ARE CI SPY INVISIBLE aka 'red spy'",Plr);
+}
+if (cialpha == 3) {
+SetClass(Plr, "CI Gamma");
+wait(1/2);
+RemoveItem(Plr, "UZI");
+RemoveItem(Plr, "AK");
+RemoveItem(Plr, "Flashlight");
+GiveItem(Plr, "M320 Grenade launcher");
+GiveItem(Plr, "Grenade");
+GiveItem(Plr, "Grenade");
+ModifyPlayerAmmo(Plr, "Explosive",4);
+ModifyPlayerAmmo(Plr, "MediumCaliber",-150);
+ModifyPlayerAmmo(Plr, "SmallCaliber",-165);
+wait(1);
+Announce("YOU ARE CI Pyromaniac aka 'happy cta :D'",Plr);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OnNukeStart--------------------------------------
+
+Announce("Prepear to boom nvm this person stated nuke: " + Plr.Name);
+
+
+
+
+
+OnPlayerPickUpItem----------------------------------------
+
+function randomgun() {
+var randomgunr = rand(1, 20);
+if (randomgunr == 1) {
+GiveItem(Plr,"AA-12");
+}
+if (randomgunr == 2) {
+GiveItem(Plr,"Deasert eagle");
+}
+if (randomgunr == 3) {
+GiveItem(Plr,"China Lake");
+}
+if (randomgunr == 4) {
+GiveItem(Plr,"USP");
+}
+if (randomgunr == 5) {
+GiveItem(Plr,"Glock 17");
+}
+if (randomgunr == 6) {
+GiveItem(Plr,"Grenade");
+}
+if (randomgunr == 7) {
+GiveItem(Plr,"Handcuffs");
+}
+if (randomgunr == 8) {
+GiveItem(Plr,"Barrett M82A1");
+}
+if (randomgunr == 9) {
+GiveItem(Plr,"MP7");
+}
+if (randomgunr == 10) {
+GiveItem(Plr,"M60");
+}
+if (randomgunr == 11) {
+GiveItem(Plr,"M110");
+}
+if (randomgunr == 12) {
+GiveItem(Plr,"M4A1");
+}
+if (randomgunr == 13) {
+GiveItem(Plr,"SCAR PWD");
+}
+if (randomgunr == 14) {
+GiveItem(Plr,"SCAR-L");
+}
+if (randomgunr == 15) {
+GiveItem(Plr,"UZI");
+}
+if (randomgunr == 16) {
+GiveItem(Plr,"UMP-45");
+}
+if (randomgunr == 17) {
+GiveItem(Plr,"Revolver");
+}
+if (randomgunr == 18) {
+GiveItem(Plr,"Stun Grenade");
+}
+if (randomgunr == 19) {
+GiveItem(Plr,"G36C");
+}
+if (randomgunr == 20) {
+GiveItem(Plr,"P90");
+}
+}
+
+if (ItemName == "Shield for fun") {
+randomgun();
+RemoveItem(Plr, "Shield for fun");
+
+}
+if (ItemName == "Fire Extinguisher") {
+print Plr.Name + " AS " + Plr.Class+ " PUTED ON SCP 035";
+var mask = Plr.Position;
+wait(1/2);
+RemoveItem(Plr, "Fire Extinguisher");
+SetHealth(Plr, 0);
+wait(1/2);
+DeleteItems("Fire Extinguisher");
+wait(1/2);
+SetClass(Plr, "SCP-035");
+wait(1/2);
+ClearRagdolls();
+Teleport(Plr, mask);
+}
+if (ItemName == "Golden Gnome Chompski") Announce("You picked up SCP-Gonome.Type !how to understand to to use gnome",Plr);
+if (ItemName == "Smoke Grenade") Announce("You picked up SCP-500-S.Type !how to understand to to use SCP-500-S",Plr);
+if (ItemName == "Cup") Announce("You picked up SCP-1499.Type !how to understand to to use SCP-1499",Plr);
+
+RemoveItem(Plr, "[Admin Panel] Minigun");
+RemoveItem(Plr, "[Admin Panel] grenade jumper");
+RemoveItem(Plr, "DIVINE INTERVENTION");
+
+
+
+OnPlayer914Upgrade------------------------
+
+function better() {
+var dcwas = Plr.Position;
+SetHealth(Plr, 0);
+wait(1);
+ClearRagdolls();
+print Plr.Name + " IN very fine at 914 becomed better";
+SetClass(Plr, "Researcher");
+wait(1/2);
+Teleport(Plr, dcwas);
+Announce("Welcome to scient",Plr);
+RemoveItem(Plr, "USP");
+RemoveItem(Plr, "Skin Spray");
+RemoveItem(Plr, "Zone Manager Keycard");
+RemoveItem(Plr, "Scientist Keycard");
+RemoveItem(Plr, "Medkit");
+RemoveItem(Plr, "Radio");
+RemoveItem(Plr, "Flashlight");
+RemoveItem(Plr, "Handcuffs");
+}
+if (Mode == "1:1") {
+if (HasItem(Plr, "Medkit")) {
+RemoveItem(Plr, "Medkit");
+GiveItem(Plr, "Smoke Grenade");
+}
+if (HasItem(Plr, "USP")) {
+RemoveItem(Plr, "USP");
+GiveItem(Plr, "Glock 17");
+}
+if (HasItem(Plr, "Class-D Keycard")) {
+RemoveItem(Plr, "Class-D Keycard");
+wait(1);
+GiveItem(Plr, "Janitor Keycard");
+}
+}
+if (Mode == "Rough") {
+print Plr.Position;
+var oldpos = Plr.Position;
+SetHealth(Plr, 0);
+wait(1/2);
+SetClass(Plr, "SCP-049-2");
+ClearRagdolls();
+wait(0.4);
+Teleport(Plr, oldpos);
+SetMaxHealth(Plr, 60);
+SetHealth(Plr, 60);
+}
+if (Mode == "Very Fine") {
+if (Plr.Class == "Class-D") {
+var dboi = rand(1, 3);
+if (dboi == 1) {
+better();
+}
+if (dboi == 2) {
+SetHealth(Plr, 0);
+}
+if (dboi == 3) {
+SetMaxHealth(Plr, Plr.MaxHealth + 10);
+SetHealth(Plr, 1000000);
+}
+} else {
+var luck = rand(1, 3);
+if (luck == 2) {
+SetHealth(Plr, 0);
+} else {
+SetMaxHealth(Plr, Plr.MaxHealth + 10);
+SetHealth(Plr, 1000000);
+}
+}
+}
+
+
+OnPlayerDeath-----------------------------
+
+print Plr.Name + " Just died as " + OldClass;
+if (OldClass == "SCP-049") {
+SetGlobal("doc",1);
+SetGlobal("tier",0);
+SetGlobal("cured",0);
+}
+if (strfind(OldClass, "SCP")) {
+if (OldClass != "SCP-049-2") {
+Announce(OldClass + " Has been contained");
+}
+}
+
+
+OnRoundStart--------------------------------------
+
+NewTeam("SCP-035","Black");
+NewTeam("Switcher","Pastel green");
+NewTeam("Wanderer","Lapis");
+NewTeam("Temp-Mod","Bronze");
+NewTeam("SCP-008","Mint");
+NewTeam("o5","Teal");
+NewTeam("Senior Guard","Brown");
+NewTeam("Staff","Nougat");
+NewTeam("Moderator","Lilac");
+SetGlobal("doc",1);
+SetGlobal("tier",0);
+SetGlobal("cured",0);
+SetGlobal("RTime",0);
+SetGlobal("SCPsEscape",0);
+SetGlobal("mtf",0);
+SetGlobal("Gasmask",0);
+SetGlobal("MTF","d");
+SetGlobal("EPSILON","d");
+SetGlobal("MTFN","d");
+SetGlobal("MTF3","d");
+SetGlobal("MTF4","d");
+SetGlobal("SCPc",1);
+wait(5);
+while (true) {
+if (GetGlobal("cured") > 4) {
+if (GetGlobal("cured") < 6) {
+SetGlobal("tier",1);
+SetGlobal("cured",6);
+wait(1);
+print "tier 1";
+}
+}
+if (GetGlobal("cured") > 11) {
+if (GetGlobal("cured") < 13) {
+SetGlobal("tier",2);
+SetGlobal("cured",14);
+wait(1);
+print "tier 2";
+}
+}
+if (GetGlobal("tier") < 3) {
+if (GetGlobal("cured") > 19) {
+SetGlobal("tier",3);
+SetGlobal("cured",21);
+wait(1);
+print "tier 3";
+}
+}
+wait(1);
+SetGlobal("doc", GetGlobal("doc") + 1);
+SetGlobal("Gasmask", GetGlobal("Gasmask") + 1);
+SetGlobal("RTime", GetGlobal("RTime") + 1);
+if (#GetPlayersInTeam("MTF Commander") + #GetPlayersInTeam("MTF Sniper") + #GetPlayersInTeam("MTF Cader") + #GetPlayersInTeam("MTF Lieutenant") + #GetPlayersInTeam("MTF Medic") + #GetPlayersInTeam("MTF Specialist") + #GetPlayersInTeam("GOC Captain") + #GetPlayersInTeam("GOC Private") + #GetPlayersInTeam("GOC Sapper") + #GetPlayersInTeam("GOC Corporal") >= 1) {
+if (#GetPlayersInTeam("SCP-035") + #GetPlayersInTeam("Serpents Hand") >= 1) {
+roundlock(true);
+} else {
+roundlock(false);
+}
+} else {
+roundlock(false);
+}
+}
+
+OnNukeExplosion------------------------------------
+
+Announce("kaboom!");
+
+
+onPlayerChatted------------------------------------------
+
+if (Plr.Name == "Yarik_superpro") {
+if (sub(Message, 1, 2) == "!a") {
+Announce(Plr.Name + "|" + (sub(Message, 3, 500)));
+}
+}
+if (Plr.Name == "OWNER") {
+if (sub(Message, 1, 2) == "!a") {
+Announce(Plr.Name + "|" + (sub(Message, 3, 500)));
+}
+}
+if (Message == "!rules") {
+Announce("WELCOME TO RULES!",Plr);
+wait(1);
+Announce("Be friendly and dont be rude(harrasment or bulling for no reason not allowed)",Plr);
+wait(7);
+Announce("SCPs are allowed to teaming with ci but not class d",Plr);
+wait(6);
+Announce("Dont team with hostile teams",Plr);
+wait(7);
+Announce("You are allowed to team with neutral teams:",Plr);
+wait(4);
+Announce("Do not kill cuffed classes with no reasons (scp 035 can and other scps)",Plr);
+wait(3);
+Announce("Follow Orders of your leader aka as MTF,CI,049-2,Researchers(WARN->FC)unless its useless or not possible to do",Plr);
+wait(3);
+Announce("Do not kill neutral teams with no reasons do not KOS-kill on sight or RDM random murder (FC-Kick-Ban)",Plr);
+wait(3);
+Announce("Do not self kill as scps",Plr);
+wait(3);
+Announce("Do not camp (you must run if saw spawn) or doors\gates (you cn camp them for short time like 20-35 seconds)",Plr);
+wait(3);
+Announce("Do not kill unarmed persons for no reason even if its ci or mtf(goc,scps,SH can do it)",Plr);
+wait(3);
+Announce("do not make someone mad unless ingame situation",Plr);
+wait(3);
+Announce("EXPLOITING\ALTING\Cheating\Bug abusing\making somethink bad ->bring you into blacklist (permanent ban)if you really dont wanted it you mayble can me forgived unless exploiters (they cant do appeal)",Plr);
+wait(3);
+Announce("Dont say bad words in chat",Plr);
+wait(4);
+Announce("Do not round delay or camp(any sort of camp not allowed)",Plr);
+wait(3);
+Announce("Dont beg or threat others bad",Plr);
+wait(4);
+Announce("If you founded bugs tell it to Yarik_superpro",Plr);
+wait(4);
+Announce("Abusing\Killing someone by commands for no reason not allowed",Plr);
+wait(4);
+Announce("MAKE SURE FOLLOW COMMON SENSE MAKING SOMETHINK WHAT CAN DESTROYING ROUND AKA DELAYING NOT ALLOWED",Plr);
+wait(4);
+Announce("Also you need read rules from our discoard",Plr);
+wait(7);
+Announce("also recomended to join on discoard server !invite",Plr);
+wait(6);
+Announce("HAVE FUN!=)",Plr);
+}
+if (Message == "!how") {
+Announce("!how - Type !scp 500 for info about scp 500.Type !scp 1499 for info about scp 1499.Type !gnome for info about gnome",Plr);
+}
+if (Message == "!scp 500") {
+Announce("type !eat to use scp 500 regenerates 110 hp instantly and gives regeneration + 25 for 4 seconds",Plr);
+}
+if (Message == "!gnome") {
+Announce("type !use if you used it they teleports you back after 10-15 seconds also have 1/3 change to disapear",Plr);
+}
+if (Message == "!scp 1499") {
+Announce("type !put brings you to unknown dimension for some time(3 mins coldown)",Plr);
+}
+if (Message == "!crafts914") {
+Announce("YOU MUST DONT DROP ITEMS AND GO TO 914!1:1- medkit=scp 500-s.Human on Rough-Weak zombie.Class d on very fine {redacted}",Plr);
+}
+if (Message == "!commands") {
+Announce("!commands - displays all the current commands",Plr);
+wait(3);
+Announce("!rules - displays rules",Plr);
+wait(3);
+Announce("!credit - displays content makers and games what gived ideas",Plr);
+wait(3);
+Announce("!Rtime - displays time of this round in seconds",Plr);
+wait(3);
+Announce("!rounds - displays how many rounds was in this server before restart",Plr);
+wait(3);
+Announce("!crafts914 - 914 custom crafts in nutshell",Plr);
+wait(3);
+Announce("!invite - tells you invite to the disco server.",Plr);
+wait(3);
+Announce("!how - displays info about custom non playable scps",Plr);
+wait(3);
+Announce("!gm got - displays info about what event now (diseabled)",Plr);
+}
+if (Message == "!credit") {
+Announce("Scripter/Builder : Yarik_superpro ",Plr);
+wait(4);
+Announce("Inspired by: SCP SL and rBreach and Facility Lockdown",Plr);
+}
+if (Message == "!invite") {
+Announce("Code: CODE OF DISCOARD SERVER INVITE: ",Plr);
+}
+if (Message == "!Rtime") {
+Announce(GetGlobal("RTime"),Plr);
+}
+if (Message == "!rounds") {
+Announce(GetGlobal("Rounds"),Plr);
+}
+if (Plr.Class == "SCP-049") {
+if (Message == "!tier") {
+Announce(GetGlobal("tier"),Plr);
+}
+if (Message == "!cured") {
+Announce(GetGlobal("cured"),Plr);
+}
+}
+if (Message == "!talk1") {
+if (Plr.Class == "SCP-049") {
+print(GetGlobal("doc"));
+if (GetGlobal("doc" ,Plr) > 29) {
+SetAudioId("rbxassetid://2746496065");
+wait(1/2);
+PlayAudio(2746496065);
+SetGlobal("doc",1);
+}
+}
+}
+if (Message == "!talk2") {
+if (Plr.Class == "SCP-049") {
+print(GetGlobal("doc"));
+if (GetGlobal("doc" ,Plr) > 29) {
+SetAudioId("rbxassetid://2746473454");
+wait(1/2);
+PlayAudio(2746473454);
+SetGlobal("doc",1);
+}
+}
+}
+if (Message == "!talk3") {
+if (Plr.Class == "SCP-049") {
+print(GetGlobal("doc"));
+if (GetGlobal("doc" ,Plr) > 29) {
+SetAudioId("rbxassetid://2746491843");
+wait(1/2);
+PlayAudio(2746491843);
+SetGlobal("doc",1);
+}
+}
+}
+if (Message == "!eat") {
+if (HasItem(Plr, "Smoke Grenade")) {
+wait(0.9);
+if (HasItem(Plr, "Smoke Grenade")) {
+RemoveItem(Plr, "Smoke Grenade");
+print Plr.Name + " Used scp 500";
+SetHealth(Plr, Plr.Health + 110);
+Announce("You feel you very good",Plr);
+wait(1);
+SetHealth(Plr, Plr.Health + 25);
+wait(1);
+SetHealth(Plr, Plr.Health + 25);
+wait(1);
+SetHealth(Plr, Plr.Health + 25);
+wait(1);
+SetHealth(Plr, Plr.Health + 15);
+wait(1);
+SetHealth(Plr, Plr.Health + 15);
+}
+} else {
+Announce("you have nothink to eat :(",Plr);
+}
+}
+if (Message == "!use") {
+if (HasItem(Plr, "Golden Gnome Chompski")) {
+var posd = Plr.Position;
+RemoveItem(Plr, "Golden Gnome Chompski");
+RemoveItem(Plr, "Cup");
+wait(rand(10,15));
+Teleport(Plr, posd);
+Announce("Achievement: Running " + Plr.Class + " ?",Plr);
+var gnomed = rand(1, 3);
+if (gnomed <= 2) {
+GiveItem(Plr, "Golden Gnome Chompski");
+} else Announce("Gnome disapeared :(",Plr);
+} else {
+Announce("nothink to use",Plr);
+}
+}
+if (Message == "!fc 049") {
+if (GetGlobal("RTime") < 70) {
+if (#GetPlayersInTeam("SCP-049") == 0) {
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+SetClass(Plr, "SCP-049");
+} 
+}
+} else Announce("Woops this class already claimed",Plr);
+} else Announce("You cant choose another scp.Becouse round was started more than 1 minute ago",Plr);
+}
+if (Message == "!fc 096") {
+if (GetGlobal("RTime") < 70) {
+if (#GetPlayersInTeam("SCP-096") == 0) {
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+SetClass(Plr, "SCP-096");
+} 
+}
+} else Announce("Woops this class already claimed",Plr);
+} else Announce("You cant choose another scp.Becouse round was started more than 1 minute ago",Plr);
+}
+if (Message == "!fc 106") {
+if (GetGlobal("RTime") < 70) {
+if (#GetPlayersInTeam("SCP-106") == 0) {
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+SetClass(Plr, "SCP-106");
+} 
+}
+} else Announce("Woops this class already claimed",Plr);
+} else Announce("You cant choose another scp.Becouse round was started more than 1 minute ago",Plr);
+}
+if (Message == "!fc 1507") {
+if (GetGlobal("RTime") < 70) {
+if (#GetPlayersInTeam("SCP-1507") <= 1) {
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+SetClass(Plr, "SCP-1507");
+} 
+}
+} else Announce("Woops this class already claimed",Plr);
+} else Announce("You cant choose another scp.Becouse round was started more than 1 minute ago",Plr);
+}
+if (Message == "!fc 173") {
+if (GetGlobal("RTime") < 70) {
+if (#GetPlayersInTeam("SCP-173") == 0) {
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+SetClass(Plr, "SCP-173");
+} 
+}
+} else Announce("Woops this class already claimed",Plr);
+} else Announce("You cant choose another scp.Becouse round was started more than 1 minute ago",Plr);
+}
+if (Message == "!fc 966") {
+if (GetGlobal("RTime") < 70) {
+if (#GetPlayersInTeam("SCP-939") == 0) {
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+SetClass(Plr, "SCP-939");
+} 
+}
+} else Announce("Woops this class already claimed",Plr);
+} else Announce("You cant choose another scp.Becouse round was started more than 1 minute ago",Plr);
+}
+if (Message == "!fc 939") {
+if (GetGlobal("RTime") < 70) {
+if (#GetPlayersInTeam("SCP-939") == 0) {
+if (strfind(Plr.Class, "SCP")) {
+if (Plr.Class != "SCP-049-2") {
+SetClass(Plr, "SCP-939");
+} 
+}
+} else Announce("Woops this class already claimed",Plr);
+} else Announce("You cant choose another scp.Becouse round was started more than 1 minute ago",Plr);
+}
+if (Message == "!put") {
+if (HasItem(Plr, "Cup")) {
+if (GetGlobal("Gasmask") >= 120) {
+RemoveItem(Plr, "Golden Gnome Chompski");
+RemoveItem(Plr, "Cup");
+SetGlobal("Gasmask",1);
+Announce("You puted SCP-1499 on",Plr);
+var put = Plr.Position;
+wait(0.5);
+Teleport(Plr, Vec3(-2110, 1012, 364));
+wait(28);
+Announce("3",Plr);
+wait(1);
+Announce("2",Plr);
+wait(1);
+Announce("1",Plr);
+wait(1);
+Teleport(Plr,put);
+GiveItem(Plr, "Cup");
+} else Announce(GetGlobal("Gasmask"),Plr);
+} else Announce("You dont have scp 1499",Plr);
+}
+
+
+
+OnRoundEnd-----------------------------------
+
+SetGlobal("Gasmask",1);
+SetGlobal("doc",1);
+SetGlobal("tier",0);
+SetGlobal("cured",0);
+SetGlobal("gm",1);
+SetGlobal("Rounds", GetGlobal("Rounds") + 1);
+SetGlobal("RTime",1);
+Announce("THX for playing in our server.For This Round SCPs-anomalies was evecuated:");
+wait(1/2);
+Announce(GetGlobal("SCPsEscape"));
+wait(1);
+SetGlobal("SCPsEscape",0);
+roundlock(false);
+
+
+OnPlayerKill----------------------
+
+print Killer.Name + " as " + Killer.Class+" Just killed: " + Target.Name + " as " + TargetOldClass;
+if (Killer.Class == "SCP-610") {
+wait(4);
+SetClass(Target, "SCP-610");
+wait(1);
+Teleport(Target, Killer.Position + Vec3(0, 0, 0));
+SetHealth(Killer, Killer.Health + 200);
+}
+if (Killer.Class == "SCP-035") {
+  SetHealth(Killer, Killer.Health + 50);
+}
+if (Killer.Class == "SCP-008") {
+Announce("YOU GOT SCP 008 infection", Target);
+wait(1);
+SetHealth(Killer, Killer.Health + 200);
+SetClass(Target, "SCP-008");
+ClearRagdolls();
+SetHealth(Killer, Killer.Health + 80);
+wait(1/5);
+Teleport(Target, Killer.Position);
+}
+if (Killer.Class == "SCP-049") {
+SetHealth(Killer, Killer.Health + 100);
+if (GetGlobal("tier") >= 1) {
+var cured = Killer.Position;
+Announce("SCP-049 gived you scp 008 infection!", Target);
+wait(1/2);
+SetClass(Target, "SCP-049-2");
+ClearRagdolls();
+wait(1/2);
+Teleport(Target, cured);
+}
+if (GetGlobal("tier") == 3) {
+SetHealth(Killer, Killer.Health + 300);
+}
+}
+if (Killer.Class == "SCP-049-2") {
+Announce("YOU GOT SCP 008 infection", Target);
+var bited = Killer.Position;
+wait(1/2);
+SetHealth(Killer, Killer.Health + 200);
+SetClass(Target, "SCP-049-2");
+ClearRagdolls();
+wait(1/5);
+Teleport(Target, bited);
+}
+if (Killer.Class == "SCP-096") {
+  SetHealth(Killer, Killer.Health + 150);
+}
+if (Killer.Class == "SCP-1507") {
+    SetMaxHealth(Killer, Killer.MaxHealth + 50);
+    SetHealth(Killer, Killer.Health + 125);
+}
+if (Killer.Class == "SCP-106") {
+  SetHealth(Killer, Killer.Health + 90);
+  SetAudioId("rbxassetid://8625225990");
+wait(1);
+PlayAudio(8625225990);
+}
+if (TargetOldClass == "SCP-049") {
+wait(1/10);
+Announce("By " + Killer.Class);
+}
+if (TargetOldClass == "SCP-096") {
+wait(1/10);
+Announce("By " + Killer.Class);
+}
+if (TargetOldClass == "SCP-1507") {
+wait(1/10);
+Announce("By " + Killer.Class);
+}
+if (TargetOldClass == "SCP-106") {
+wait(1/10);
+Announce("By " + Killer.Class);
+}
+if (TargetOldClass == "SCP-610") {
+wait(1/10);
+Announce("By " + Killer.Class);
+}
+if (TargetOldClass == "SCP-457") {
+wait(1/10);
+Announce("By " + Killer.Class);
+}
+if (TargetOldClass == "SCP-173") {
+wait(1/10);
+Announce("By " + Killer.Class);
+}
+if (TargetOldClass == "SCP-035") {
+if (strfind(Killer.Class, "MTF", 1, true)) {
+Announce("SCP 035 HAS BEEN RETURNED TO CONTAIMENT!");
+} else {
+if (strfind(Killer.Class, "GOC", 1, true)) {
+Announce(cmask);
+} else {
+Announce("YOU PICKED UP SCP 035!", Killer);
+GiveItem(Killer, "Fire Extinguisher");
+}
+}
+}
